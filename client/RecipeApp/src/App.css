@@ -755,7 +755,7 @@ body{
   height: 56vh;
 }
 .Text{
-  margin-left: 100px;
+  margin-left: 38px;
 }
 .Text h2{
   font-family: 'Inter', sans-serif;
@@ -944,9 +944,6 @@ body{
   grid-template-rows: repeat(2,1fr);
   height: 56vh;
 }
-.Text{
-  margin-left: 100px;
-}
 .Text h2{
   font-family: 'Inter', sans-serif;
   font-size: 3rem;
@@ -998,4 +995,9 @@ body{
 }
 .bdajs{
   background-color: rgb(255, 174, 0);
+}
+.flex-lower{
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
 }

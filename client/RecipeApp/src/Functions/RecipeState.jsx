@@ -1,13 +1,15 @@
 import RecipeContext from "./RecipeContext";
 import { useEffect, useState } from "react";
 const RecipeState = (props) => {
- 
+  const [cards3, setcards3] = useState([]);
+  const [cards3Index, setcards3Index] = useState(0);
   const [dataArray, setDataArray] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const [Menu, setMenu] = useState([]);
   const [startIndexMeny, setstartIndexMeny] = useState(0);
   const [itemsToRender, setItemsToRender] = useState([]);
   const User_account = [];
+  
   const [SignedInCheck, setSignedInCheck] = useState(false);
   const [User, setUser] = useState(User_account);
   const [categories, setCategories] = useState([]);

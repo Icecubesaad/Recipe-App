@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../images/k_Photo_Recipes_2020-10-twv-crispy-fall-tofu-bowl_TheKitchnFallTofuBowl_Option2-removebg-preview.png";
+import { Link } from "react-router-dom";
 const SideScreen = () => {
   return (
     <div className="SideScreen">
@@ -15,7 +16,7 @@ const SideScreen = () => {
             <input placeholder="Search Recipe"/>
           </div>
           <div className="Text">
-          <h2>
+          <h2 className="animate__animated animate__bounce animate__slow">
           Your own Chef
           </h2>
           <p>
@@ -32,7 +33,53 @@ const SideScreen = () => {
       <div className="Lower-part">
       <div className="left-lower">
       <div className="Cards">
-          Cards
+          <div className="flex-lower">
+          <div className="card" style={{ width: "14rem" ,borderRadius:"20px", height:"17rem",backgroundColor:"rgb(14, 18, 24)",color:"white",border:"2px solid rgb(14, 18, 24)"}}>
+          <Link to={`/Menu/${"Chicken"}/${"Teriyaki Chicken Casserole"}/${52772}`}>
+            <img
+              src="https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
+              class="card-img-top"
+              id="img-card"
+              alt="..."
+              style={{ height: "auto" }}
+            />
+          
+          <div className="card-body">
+            <p className="card-text" style={{color:"white"}}>Teriyaki Chicken Casserole</p>
+          </div>
+          </Link>
+        </div>
+        <div className="card" style={{ width: "14rem" ,borderRadius:"20px", height:"17rem",backgroundColor:"rgb(14, 18, 24)",color:"white",border:"2px solid rgb(14, 18, 24)"}}>
+        <Link to={`/Menu/${"Beef"}/${"Big Mac"}/${53013}`}>
+          <img
+            src="https://www.themealdb.com/images/media/meals/urzj1d1587670726.jpg"
+            class="card-img-top"
+            id="img-card"
+            alt="..."
+            style={{ height: "auto" }}
+          />
+        
+        <div className="card-body">
+          <p className="card-text" style={{color:"white"}}>Big Mac</p>
+        </div>
+        </Link>
+      </div>
+      <div className="card" style={{ width: "14rem" ,borderRadius:"20px", height:"17rem",backgroundColor:"rgb(14, 18, 24)",color:"white",border:"2px solid rgb(14, 18, 24)"}}>
+      <Link to={`/Menu/${"Pasta"}/${"Fettuccine Alfredo"}/${53064}`}>
+        <img
+          src="https://www.themealdb.com/images/media/meals/0jv5gx1661040802.jpg"
+          class="card-img-top"
+          id="img-card"
+          alt="..."
+          style={{ height: "auto" }}
+        />
+      
+      <div className="card-body">
+        <p className="card-text" style={{color:"white"}}>Fettuccine Alfredo</p>
+      </div>
+      </Link>
+    </div>
+          </div>
       </div>
       </div>
       <div className="right-lower">
