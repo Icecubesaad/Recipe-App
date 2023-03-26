@@ -6,6 +6,7 @@ const Recipe = () => {
     const {id} = useParams()
     const context = useContext(RecipeContext);
     const {Ingredients,getIngredients,Saving_Recipe} = context
+    console.log(Ingredients)
     useEffect(() => {
         getIngredients(id)
     }, []);
@@ -75,7 +76,7 @@ const Recipe = () => {
                 <h5>Category : {element.strCategory}</h5>
                 <div className='ingredients'>
                 <div className='items'>
-                <h1 style={{fontFamily:'Staatliches'}}>Ingredients</h1>
+                <h1 style={{fontFamily:'Staatliches', fontSize:"2rem"}}>Ingredients</h1>
                 <ul>
                 <li>{element.strIngredient1}</li>
                 <li>{element.strIngredient2}</li>

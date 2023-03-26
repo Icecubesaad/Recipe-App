@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Dosis&family=Inter:wght@700&family=Montserrat:wght@300&family=Mukta&family=Oxygen&family=Staatliches&family=Tilt+Warp&family=Work+Sans:wght@500&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Asap&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Dosis&family=Montserrat:wght@300&family=Mukta&family=Oxygen&family=Staatliches&family=Tilt+Warp&family=Work+Sans:wght@500&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bourbon@4.3.4/dist/bourbon.css");
-html, body {
-  height: 100%;
+body{
+  background-color: rgb(14, 18, 24);
 }
-
 *{
   margin: 0;
   padding: 0;
@@ -149,7 +149,8 @@ font-family: 'Poppins', sans-serif;
 }
 .content{
   background-color: rgb(34, 36, 49);
-  height: 100%;
+  min-height: calc(100vh -  13vh);
+  color: white;
 }
 .shw{
   position: absolute;
@@ -315,6 +316,8 @@ font-family: 'Poppins', sans-serif;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   height: 13vh;
+  background-color: rgb(34, 36, 49);
+  color: white;
 }
 .Search-bar{
   justify-self: center;
@@ -322,6 +325,8 @@ font-family: 'Poppins', sans-serif;
 }
 .Menu{
   align-self: center;
+  display: flex;
+  align-items: center;
 }
 .logo{
   align-self: center;
@@ -329,13 +334,14 @@ font-family: 'Poppins', sans-serif;
 .Menu ul{
   display: flex;
   gap: 30px;
+  align-items: center;
 }
 .Menu ul li{
   list-style: none;
 }
 .Menu ul li a{
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 1.1rem;
 }
 .logo{
@@ -425,19 +431,21 @@ justify-content: center;
   flex-direction: column;
   font-size: 1rem;
   font-family: 'Mukta', sans-serif;
-  margin-top: 20px;
 }
 .flex-ca{
-  margin-top: 10vh;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: auto;
   column-gap: 67px;
-row-gap: 42px;
+row-gap: 10px;
 }
 .flex-cate{
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.flex{
+  display: flex;
 }
 .card{
   border-radius: 7px;
@@ -460,18 +468,21 @@ row-gap: 42px;
     justify-content: center;
     display: grid;
     flex-direction: column;
-    gap: 30px;
     margin-right: 34px;
     margin-top: 30px;
   }
   .buttons-Recipes{
-    margin-left: 124px;
+    justify-self: center;
   }
   .img-Recipe img{
     justify-self: center;
+    align-self: center;
   }
 .Recipe-Main{
-  height: 120vh;
+  height: auto;
+  width: 85%;
+  background-color: rgb(34, 42, 61);
+  color: white;
 }
 .method{
   margin-left: 124px;
@@ -480,8 +491,8 @@ row-gap: 42px;
   margin-top: 37px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   margin-left: 20px;
+  gap: 20px;
 }
 .Info-Recipe h5{
 
@@ -489,7 +500,7 @@ row-gap: 42px;
 }
 .Info-Recipe h2{
   font-family: 'Staatliches', cursive;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .ingredients ul li{
   list-style: none;
@@ -525,8 +536,7 @@ body{
   padding:0;
   margin:0;
   width:100%;
-  height:100vh;
-  background-color:white;
+  height:100%;
 }
 .wrapper{
   width:200px;
@@ -541,7 +551,7 @@ body{
   height:20px;
   position: absolute;
   border-radius: 50%;
-  background-color: black;
+  background-color: white;
   left:15%;
   transform-origin: 50%;
   animation: circle .5s alternate infinite ease;
@@ -576,7 +586,7 @@ body{
   width:20px;
   height:4px;
   border-radius: 50%;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(159, 160, 160, 0.5);
   position: absolute;
   top:62px;
   transform-origin: 50%;
@@ -614,7 +624,7 @@ body{
   font-family: 'Lato';
   font-size: 20px;
   letter-spacing: 12px;
-  color:black;
+  color:white;
   left:15%;
 }
 .profile{
@@ -637,4 +647,355 @@ body{
 .btn-nav-auth:hover{
   background-color: white;
   border: 1px solid #3f9551;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.sidebar{
+  background-color: black;
+  height: 100vh;
+  width: 20%;
+  color: white;
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 0.5fr ;
+  font-family: 'Inter', sans-serif;
+  background-color: rgb(14, 18, 24);
+
+}
+.menu{
+  align-self: center;
+  display: grid;
+  grid-template-rows: repeat(3,1fr);
+  row-gap: 40px;
+}
+.Recipes{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  font-size: 1.1rem;
+  width: 80%;
+}
+.Saved{
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  font-size: 1.1rem;
+}
+.svg{
+  justify-self: right;
+  align-self:center;
+}
+.text{
+  justify-self: center;
+  align-self: center;
+}
+.Profile{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  width: 80%;
+  font-size: 1.1rem;
+}
+.SideScreen{
+  height: 100%;
+  width: 83%;
+  background-color: rgb(34, 42, 61);
+}
+.Menu_container{
+  height: 100vh;
+  width: 83%;
+  display: flex;
+  color: white;
+  background-color: rgb(34, 42, 61);
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+}
+.pic-right{
+  align-self: top;
+}
+.pic-right img{
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.search-bar input{
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  height: 50px;
+  font-size: 1rem;
+  color: black;
+}
+.search-bar input:focus{
+  border: transparent;
+  outline: none;
+}
+.search-bar input::placeholder{
+  color: black;
+}
+.search-bar{
+  width: 60%;
+  height: 50px;
+  background-color: rgb(152, 152, 153);
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-self: center;
+  padding-left: 20px;
+  border: transparent;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+.left-uper{
+  display: grid;
+  grid-template-rows: repeat(2,1fr);
+  height: 56vh;
+}
+.Text{
+  margin-left: 100px;
+}
+.Text h2{
+  font-family: 'Inter', sans-serif;
+  font-size: 3rem;
+  
+  color: white;
+}
+.Text p{
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  margin-top: 20px;
+  color: white;
+}
+.Lower-part{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  height: 44vh;
+  width: 100%;
+}
+.button button{
+  width: 180px;
+  height: 50px;
+  background-color: rgb(85, 85, 87);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  border: transparent;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#btn1 svg{
+  margin-right: 15px;
+}
+#btn2 svg{
+  margin-left: 15px;
+}
+.left-lower{
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+.right-lower{
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bdajs{
+  background-color: rgb(255, 174, 0);
+}
+.btn-menu{
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 50%;
+  
+}
+.button-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right:10px ;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.sidebar{
+  background-color: black;
+  height: 100vh;
+  width: 20%;
+  color: white;
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 0.5fr ;
+  font-family: 'Inter', sans-serif;
+  background-color: rgb(14, 18, 24);
+
+}
+.menu{
+  align-self: center;
+  display: grid;
+  grid-template-rows: repeat(3,1fr);
+  row-gap: 40px;
+}
+.Recipes{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  font-size: 1.1rem;
+  width: 80%;
+}
+.Saved{
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  font-size: 1.1rem;
+}
+.svg{
+  justify-self: right;
+  align-self:center;
+}
+.text{
+  justify-self: center;
+  align-self: center;
+}
+.Profile{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  width: 80%;
+  font-size: 1.1rem;
+}
+.SideScreen{
+  height: 100vh;
+  width: 83%;
+  background-color: rgb(34, 42, 61);
+}
+.flex{
+  display: flex;
+}
+.logo{
+  justify-self: center;
+  font-size: 1.3rem;
+  margin-top: 30px;
+}
+.profile-pic{
+  background-color: grey;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.Name{
+  text-align: center;
+  margin-top: 20px;
+}
+.Upper-part{
+  display: grid;
+  grid-template-columns: repeat(2,1fr)
+  ;
+  height: 56vh;
+}
+.pic-right{
+  align-self: top;
+}
+.pic-right img{
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.search-bar input{
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  height: 50px;
+  font-size: 1rem;
+  color: black;
+}
+.search-bar input:focus{
+  border: transparent;
+  outline: none;
+}
+.search-bar input::placeholder{
+  color: black;
+}
+.search-bar{
+  width: 60%;
+  height: 50px;
+  background-color: rgb(152, 152, 153);
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-self: center;
+  padding-left: 20px;
+  border: transparent;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+.left-uper{
+  display: grid;
+  grid-template-rows: repeat(2,1fr);
+  height: 56vh;
+}
+.Text{
+  margin-left: 100px;
+}
+.Text h2{
+  font-family: 'Inter', sans-serif;
+  font-size: 3rem;
+  
+  color: white;
+}
+.Text p{
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  margin-top: 20px;
+  color: white;
+}
+.Lower-part{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  height: 44vh;
+  width: 100%;
+}
+.button button{
+  width: 180px;
+  height: 50px;
+  background-color: rgb(85, 85, 87);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  border: transparent;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#btn1 svg{
+  margin-right: 15px;
+}
+#btn2 svg{
+  margin-left: 15px;
+}
+.left-lower{
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+.right-lower{
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bdajs{
+  background-color: rgb(255, 174, 0);
 }
