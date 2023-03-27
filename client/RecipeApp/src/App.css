@@ -1001,3 +1001,50 @@ body{
   gap: 20px;
   overflow: hidden;
 }
+.menu p a{
+  color: white;
+  text-decoration: none;
+}
+/* media queries */
+@media screen and (max-width:700px) {
+  .sidebar{
+    display: none;
+  }
+  .pic-right{
+    display: none;
+  }
+  .SideScreen{
+    width: 100%;
+  }
+  .Lower-part{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  .right-lower{
+    display: none;
+  }
+  .Upper-part{
+    height: auto;
+    display: flex;
+  }
+  .flex-lower{
+    flex-direction: column;
+  }
+  
+}
+.responsive-buttons{
+  height: 10vh;
+  display: flex;
+  gap: 10%;
+}
+.responsive-btn{
+  width: 100px;
+  height: 50px;
+  background-color: rgb(45, 194, 82);
+  border: transparent;
+  border-radius: 7px;
+  transition: all 0.3s;
+  color: white;
+}

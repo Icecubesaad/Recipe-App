@@ -24,12 +24,17 @@ const SideScreen = () => {
           </p>
           </div>
         </div>
+       
         <div className="right-uper">
           <div className="pic-right">
             <img height="400px" width="300px" src={image} />
           </div>
         </div>
       </div>
+      {window.innerWidth<600 ?  <div className="responsive-buttons">
+        <button className="responsive-btn">Menu</button>
+        <button className="responsive-btn">Saved</button>
+       </div> : null}
       <div className="Lower-part">
       <div className="left-lower">
       <div className="Cards">
@@ -83,14 +88,14 @@ const SideScreen = () => {
       </div>
       </div>
       <div className="right-lower">
-      <div className="button"><button id="btn1"><xml version="1.0" encoding="utf-8"/>
+      <Link to="/Menu"><div className="button"><button id="btn1"><xml version="1.0" encoding="utf-8"/>
 <svg width="30px" height="30px" viewBox="0 0 24 24" fill="yellow" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11V5C11 4.44772 11.4477 4 12 4Z" fill="#FFAE00"/>
-</svg> see all</button></div>
-      <div className="button"><button id="btn2"><xml version="1.0" encoding="utf-8"/>
+</svg> see all</button></div></Link>
+      <Link to="/add"><div className="button"><button id="btn2"><xml version="1.0" encoding="utf-8"/>
 <svg width="30px" height="30px" viewBox="0 0 24 24" fill="yellow" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11V5C11 4.44772 11.4477 4 12 4Z" fill="#FFAE00"/>
-</svg> add recipe</button></div>
+</svg> add recipe</button></div></Link>
       </div>
       </div>
     </div>

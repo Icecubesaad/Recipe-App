@@ -153,7 +153,8 @@ const RecipeState = (props) => {
         handleNextClickMenu,
         startIndexMeny,
         setstartIndexMeny,
-        Menu
+        Menu,
+        dataArray
       }}
     >
       {props.children}
