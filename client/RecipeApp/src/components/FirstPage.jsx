@@ -35,6 +35,7 @@ const SideScreen = () => {
         <button className="responsive-btn">Menu</button>
         <button className="responsive-btn">Saved</button>
        </div> : null}
+       {window.innerWidth<600 ? <div style={{fontFamily:"Inter", fontSize:"1.8rem",color:"white",marginLeft:"10px",marginBottom:"20px"}}>Top Dishes</div> : null}
       <div className="Lower-part">
       <div className="left-lower">
       <div className="Cards">

@@ -91,8 +91,7 @@ const RecipeState = (props) => {
     category,
     method,
     url,
-    ingredient,
-    quantity,
+
     id
   ) => {
     const res = await fetch("/account/saved", {
@@ -105,8 +104,6 @@ const RecipeState = (props) => {
         name,
         area,
         category,
-        ingredient,
-        quantity,
         method,
         id,
         url,

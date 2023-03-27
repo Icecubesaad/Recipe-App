@@ -4,7 +4,12 @@ import RecipeContext from "../Functions/RecipeContext";
 import DishesCards from "./Cards/DishesCard";
 import LoadingScreen from "./Loading/LoadingScreen";
 import { useLocation } from "react-router-dom";
+import ResponsiveCards from "./Cards/ResponsiveCards";
+import ResponsiveDishesCard from "./Cards/ResponsiveDishesCard";
 const Categories = () => {
+  const [stylediv, setstylediv] = useState({
+    width:"100%"
+  });
   const [loading, setloading] = useState(false);
   const location = useLocation();
   const context = useContext(RecipeContext);
@@ -23,6 +28,12 @@ const Categories = () => {
   const { category } = useParams();
   useEffect(() => {
     getDishes(category);
+    if(window.innerWidth<500){
+      setstylediv({
+        width:"85%"
+      })
+    }
+    setloading(true)
   }, []);
   if (location.pathname === `/Menu`) {
     setstartIndexMeny(0);
@@ -36,14 +47,19 @@ const Categories = () => {
   };
   setTimeout(() => {
     setloading(false);
-  }, 500);
+  }, 700);
   return (
     <>
       {!loading ? (
         <div className="Menu_container">
-          <div className="button-div">
+          {window.innerWidth>500 ? <div className="button-div">
             {startIndexMeny > 0 ? (
-              <button onClick={()=>{handleBackClickMenu(),loadingTrigger()}} className="btn-menu">
+              <button
+                onClick={() => {
+                  handleBackClickMenu(), loadingTrigger();
+                }}
+                className="btn-menu"
+              >
                 <xml version="1.0" encoding="utf-8" />
                 <svg
                   width="40px"
@@ -79,29 +95,42 @@ const Categories = () => {
                 </svg>
               </button>
             )}
-          </div>
-          <div>
+          </div>:null}
+          <div style={stylediv}>
             <h1
               style={{
                 fontFamily: "Staatliches",
                 marginLeft: "10px",
+                marginTop:"20px"
               }}
             >
               Dishes :
             </h1>
-            <div className="flex-cate">
-              <div className="flex-ca">
-                {Dishes.map((elements) => (
-                  <DishesCards
+            {window.innerWidth > 500 ? (
+              <div className="flex-cate">
+                <div className="flex-ca">
+                  {Dishes.map((elements) => (
+                    <DishesCards
+                      Name={elements.strMeal}
+                      Url={elements.strMealThumb}
+                      Unique={elements.idMeal}
+                    />
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="responsive-flex">
+                {Menu.map((elements) => (
+                  <ResponsiveDishesCard
                     Name={elements.strMeal}
                     Url={elements.strMealThumb}
                     Unique={elements.idMeal}
                   />
                 ))}
               </div>
-            </div>
+            )}
           </div>
-          <div className="button-div">
+          {window.innerWidth>500 ? <div className="button-div">
             {startIndexMeny + 6 >= Menu_length ? (
               <button className="btn-menu" style={{ opacity: "0" }}>
                 <xml version="1.0" encoding="utf-8" />
@@ -144,9 +173,11 @@ const Categories = () => {
                 </svg>
               </button>
             )}
-          </div>
+          </div>:null}
         </div>
-      ) : <div>{<LoadingScreen />}</div>}
+      ) : (
+        <div>{<LoadingScreen />}</div>
+      )}
     </>
   );
 };
