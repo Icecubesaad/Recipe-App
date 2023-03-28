@@ -4,10 +4,11 @@ const NotSignedin = () => {
   return (
     <>
       <Link to="/signin">
-        <button className="btn-nav">Sign in</button>
+      <button className="responsive-btn" style={{width:"200px"}}>Sign in</button>
+      
       </Link>
       <Link to="/signup">
-        <button className="btn-nav">Sign up</button>
+      <button className="responsive-btn" style={{width:"200px"}}>Sign up</button>
       </Link>
     </>
   );

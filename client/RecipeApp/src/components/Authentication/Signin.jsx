@@ -12,7 +12,7 @@ const Signin = () => {
   const history = useNavigate()
     const [credentials, setcredentials] = useState({
         "Email":"",
-        "Password":""
+        "Password":"",
     });
     const Send = async()=>{
         
@@ -68,14 +68,19 @@ const Signin = () => {
           <Link to="/signin"><button>Sign in</button></Link>
             <Link to="/signup"><button>Sign up</button></Link>
           </div>
-            <h1>Sign In</h1>
-            
-            <input className="usr put" onChange={Onchange} value={credentials.Email} name="Email" placeholder="Email or Username" type="text" />
+            <h1>Sign In</h1>  
+            <input className="usr put" onChange={Onchange} value={credentials.Email} name="Email" placeholder="Email" type="text" />
             <br />
             <input id="pass" onChange={Onchange} value={credentials.Password} name="Password" className="pss put" placeholder="Password" type="password" />
             <button id="bhde" onClick={show} className="shw" type="button">
               show
             </button>
+            {window.innerWidth<500 ? 
+              <>
+              {SError ? <div style={{color:"red",fontSize:"0.8rem",textAlign:"center"}}>Invalid credidentials</div> : null}
+              </>
+              : null
+            }
             <a className="pass" href="">
               Forgot Password
             </a>

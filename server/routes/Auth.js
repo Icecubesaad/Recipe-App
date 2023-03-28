@@ -11,7 +11,8 @@ router.post(
   "/signup",
   [body("Email").isEmail(), body("Password").isLength({ min: 5 })],
   async (req, res) => {
-    const { Email, Password } = req.body;
+    const { Email, Password, Name } = req.body;
+    console.log(Name)
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         const emailErrors = errors.array({ onlyErrors: true, attributeFilter: 'email' });
@@ -34,6 +35,7 @@ router.post(
         const create_user = await User.create({
           Email: Email,
           Password: hashed_pass,
+          Name:Name
         });
         res.status(200).json(create_user);
       }

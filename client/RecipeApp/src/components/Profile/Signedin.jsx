@@ -4,34 +4,15 @@ import { Link } from 'react-router-dom';
 
 const Signedin = () => {
   const context = useContext(RecipeContext);
-  const { get_UserDetails, name, setname , setSignedInCheck } = context;
-    console.log(name)
+  const { setSignedInCheck,setname } = context;
   const signOut = () => {
     localStorage.clear();
-    setname("");
     setSignedInCheck(false)
+    setname("")
   };
 
-  useEffect(() => {
-    get_UserDetails();
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('name', name);
-  }, [name]);
-
   return (
-    <div className='profile'>
-      <div className='logo'></div>
-      <div className='Name'>{name}</div>
-      <div>
-        <Link to='/signin'>
-          <button className='btn-nav' onClick={signOut}>
-            Logout
-          </button>
-        </Link>
-      </div>
-    </div>
+    <Link to="/signin" style={{textDecoration:"none"}}><button className="responsive-btn" onClick={signOut} style={{width:"200px"}}>Logout</button></Link>
   );
 };
 

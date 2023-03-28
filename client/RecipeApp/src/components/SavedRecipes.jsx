@@ -21,8 +21,9 @@ const SavedRecipes = () => {
   }
   return (
     <>
-      <div className="Menu_container">
-        <div className="flex-cate">
+    <div className="Menu_container">
+    <div className="flex-cate">
+    <h1 style={{marginTop:"20px"}}>Saved Dishes</h1>
           <div className="flex-ca">
             {User.data.map((elements) => {
               return (

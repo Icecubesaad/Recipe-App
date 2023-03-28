@@ -79,7 +79,7 @@ const RecipeState = (props) => {
         },
       });
       const data = await res.json();
-      setname(data.Email);
+      setname(data.Name);
     } catch (error) {
       console.log(error);
     }

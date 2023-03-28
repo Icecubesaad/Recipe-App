@@ -2,12 +2,28 @@ import React from "react";
 import ReactHover from "react-hover";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Signedin from "./Profile/Signedin";
+import NotSignedin from "./Profile/NotSignedin";
+import { useEffect } from "react";
+import { useContext } from "react";
+import RecipeContext from "../Functions/RecipeContext";
 const Sidebar = () => {
+  const context = useContext(RecipeContext)
+  const {SignedInCheck,setSignedInCheck,name} = context;
+  console.log(name)
+  useEffect(() => {
+    if(localStorage.getItem('key')){
+      setSignedInCheck(true)
+    }
+    else{
+      setSignedInCheck(false)
+    }
+  }, []);
   return (
     <div className="sidebar">
       <div className="logo">
         <div className="profile-pic"></div>
-        <div className="Name">Saad</div>
+        <div className="Name">{name}</div>
       </div>
       <div className="menu">
         <motion.p
@@ -127,7 +143,9 @@ const Sidebar = () => {
           </div>
         </motion.p>
       </div>
-      <div className="kuch-aur"></div>
+      <div className="kuch-aur">
+        {SignedInCheck ? <Signedin/> : <NotSignedin/>}
+      </div>
     </div>
   );
 };

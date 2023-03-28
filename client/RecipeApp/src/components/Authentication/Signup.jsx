@@ -7,7 +7,8 @@ const Signup = () => {
   const [message, setmessage] = useState("");
   const [credentials, setcredentials] = useState({
     "Email":"",
-    "Password":""
+    "Password":"",
+    "Name":""
   });
   const Onchange = (e)=>{
     const key = e.target.name
@@ -15,7 +16,7 @@ const Signup = () => {
     setcredentials({...credentials,[key]:value})
   }
   const Post = async()=>{
-    const {Email,Password} = credentials
+    const {Email,Password,Name} = credentials
     const res = await fetch("/auth/signup",{
       method:"POST",
       headers:{
@@ -23,7 +24,8 @@ const Signup = () => {
       },
       body:JSON.stringify({
         Email,
-        Password
+        Password,
+        Name
       })
     })
     const data =await res.json()
@@ -45,6 +47,10 @@ const Signup = () => {
      if(res.status === 403){
       setValidation(true)
       setmessage("User already exist")
+     }
+     if(res.status === 506){
+      setValidation(true)
+      setmessage("Username already exist")
      }
      setTimeout(() => {
       setValidation(false)
@@ -72,6 +78,8 @@ const Signup = () => {
             <Link to="/signup"><button>Sign up</button></Link>
           </div>
             <h1>Sign Up</h1>
+            <input id="pass" onChange={Onchange} value={credentials.Name} name="Name" className="usr put" placeholder="Username" type="text" />
+            <br/>
             <input className="usr put" onChange={Onchange} value={credentials.Email} name="Email" placeholder="Email or Username" type="text" />
             <br />
             <input id="pass" onChange={Onchange} value={credentials.Password} name="Password" className="pss put" placeholder="Password" type="password" />

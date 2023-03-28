@@ -32,8 +32,8 @@ const SideScreen = () => {
         </div>
       </div>
       {window.innerWidth<600 ?  <div className="responsive-buttons">
-        <button className="responsive-btn">Menu</button>
-        <button className="responsive-btn">Saved</button>
+        <Link to="/Menu"><button className="responsive-btn">Menu</button></Link>
+        <Link to="/Saved"><button className="responsive-btn">Saved</button></Link>
        </div> : null}
        {window.innerWidth<600 ? <div style={{fontFamily:"Inter", fontSize:"1.8rem",color:"white",marginLeft:"10px",marginBottom:"20px"}}>Top Dishes</div> : null}
       <div className="Lower-part">
