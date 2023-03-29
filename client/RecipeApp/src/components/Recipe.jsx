@@ -56,7 +56,7 @@ const Recipe = () => {
                   }}
                 >
                   <h2>{element.strMeal}</h2>
-                  <button
+                 {window.innerWidth<500? <button
                     style={{ background: "transparent", border: "transparent" }}
                     onClick={() => {
                       Saving_Recipe(
@@ -249,7 +249,7 @@ const Recipe = () => {
                         </label>
                       </div>
                     </div>
-                  </button>
+                  </button> : null}
                 </div>
                 {window.innerWidth < 500 ? (
                   <div
