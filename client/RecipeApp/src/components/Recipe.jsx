@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useLocation} from "react-router-dom";
 import RecipeContext from "../Functions/RecipeContext";
 import LoadingScreen from "./Loading/LoadingScreen";
+import RecipeErrorS from "./errors/RecipeErrorS";
 const Recipe = () => {
+  const location_path = useLocation
   const [loading, setloading] = useState(false);
-  const { id } = useParams();
+  const { id, category,Name } = useParams();
   const context = useContext(RecipeContext);
-  const { Ingredients, getIngredients, Saving_Recipe } = context;
-  console.log(Ingredients);
+  const { Ingredients, getIngredients, Saving_Recipe, RecipeError } = context;
   useEffect(() => {
     getIngredients(id);
     setloading(true);
@@ -20,12 +21,13 @@ const Recipe = () => {
   }
   return (
     <>
+    
       {loading ? (
         <div>{<LoadingScreen />}</div>
       ) : (
         Ingredients.map((element) => (
-          <div className="Recipe-Main">
-            <div className="Recipe-grid">
+          <div className="Recipe-Main" style={{overflow:"hidden"}}>
+          <div className="Recipe-grid">
               <div className="img-Recipe">
                 <img src={element.strMealThumb} height="auto" width="60%" />
                 <div className="buttons-Recipes">
@@ -44,7 +46,8 @@ const Recipe = () => {
                   >
                     Save
                   </button>
-                </div>
+                  </div>
+                  {RecipeError ? <RecipeErrorS Error={"This recipe is already in you account"}/> : null}
               </div>
 
               <div className="Info-Recipe">
@@ -69,7 +72,7 @@ const Recipe = () => {
                       );
                     }}
                   >
-                    <div id="main-content" style={{ paddingRight: "20px" }}>
+                    {location_path.pathname===`/Menu/saved/${category}/${Name}/${id}`? <div id="main-content" style={{ paddingRight: "20px" }}>
                       <div>
                         <input type="checkbox" id="checkbox" />
                         <label for="checkbox">
@@ -248,7 +251,7 @@ const Recipe = () => {
                           </svg>
                         </label>
                       </div>
-                    </div>
+                    </div> : null}
                   </button> : null}
                 </div>
                 {window.innerWidth < 500 ? (

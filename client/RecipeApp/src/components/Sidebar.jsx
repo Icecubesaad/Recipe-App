@@ -9,10 +9,11 @@ import { useContext } from "react";
 import RecipeContext from "../Functions/RecipeContext";
 const Sidebar = () => {
   const context = useContext(RecipeContext)
-  const {SignedInCheck,setSignedInCheck,name} = context;
+  const {SignedInCheck,setSignedInCheck,name,get_UserDetails} = context;
   useEffect(() => {
     if(localStorage.getItem('key')){
       setSignedInCheck(true)
+      get_UserDetails()
     }
     else{
       setSignedInCheck(false)

@@ -21,7 +21,6 @@ const Menu = () => {
     dataArray,
   } = context;
   const arrayLenght = dataArray.length;
-  console.log(arrayLenght);
   useEffect(() => {
     getApi("categories");
     setstartIndexMeny(0);

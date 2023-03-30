@@ -21,6 +21,7 @@ function App() {
       <Route path='/Menu' element={<Home><Menu/></Home>}/>
       <Route path='/Menu/:category' element={<Home><Categories/></Home>}/>
       <Route path='/Menu/:category/:Name/:id' element={<Home><Recipe/></Home>}/>
+      <Route path='/saved/Menu/:category/:Name/:id' element={<Home><Recipe/></Home>}/>
       <Route path='/signup' element={<Home><Signup/></Home>}/>
       <Route path='/signin' element={<Home><Signin/></Home>}/>
       <Route path='/saved' element={<Home><SavedRecipes/></Home>}/>

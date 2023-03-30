@@ -1,17 +1,17 @@
 import RecipeContext from "./RecipeContext";
 import { useEffect, useState } from "react";
 const RecipeState = (props) => {
-  const [cards3, setcards3] = useState([]);
-  const [cards3Index, setcards3Index] = useState(0);
+  const [RecipeError, setRecipeError] = useState(false);
   const [dataArray, setDataArray] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const [Menu, setMenu] = useState([]);
   const [startIndexMeny, setstartIndexMeny] = useState(0);
   const [itemsToRender, setItemsToRender] = useState([]);
   const User_account = [];
-  
   const [SignedInCheck, setSignedInCheck] = useState(false);
   const [User, setUser] = useState(User_account);
+  const [StartIndexUser, setStartIndexUser] = useState(0);
+  const [ItemsToRenderUser, setItemsToRenderUser] = useState([]);
   const [categories, setCategories] = useState([]);
   const [Dishes, setDishes] = useState([]);
   const [Ingredients, setIngredients] = useState([]);
@@ -32,6 +32,7 @@ const RecipeState = (props) => {
   }, [dataArray, startIndex]);
   function handleNextClick() { 
     setStartIndex(startIndex + 6);
+
   }
   function handleBackClick() {
     setStartIndex(startIndex - 6);
@@ -79,6 +80,7 @@ const RecipeState = (props) => {
         },
       });
       const data = await res.json();
+      console.log(data)
       setname(data.Name);
     } catch (error) {
       console.log(error);
@@ -91,7 +93,6 @@ const RecipeState = (props) => {
     category,
     method,
     url,
-
     id
   ) => {
     const res = await fetch("/account/saved", {
@@ -110,7 +111,13 @@ const RecipeState = (props) => {
       }),
     });
     const data = await res.json();
+    if(res.status === 403){
+      setRecipeError(true)
+    }
   };
+  setTimeout(() => {
+    setRecipeError(false)
+  }, 3000);
   const getting_recipe = async () => {
     const res = await fetch("/account/get", {
       method: "GET",
@@ -120,11 +127,18 @@ const RecipeState = (props) => {
       },
     });
     const data = await res.json();
-    setUser((us) => ({
-      ...us,
-      data,
-    }));
+    setUser((us)=>[...us,data])
   };
+  useEffect(() => {
+    if(User.length>0){
+      let ice;
+      User.map((e)=>{
+        ice = e.slice(StartIndexUser,StartIndexUser+6)
+      })
+      setItemsToRenderUser(ice)
+    }
+  }, [User,StartIndexUser]);
+  console.log(User)
   return (
     <RecipeContext.Provider
       value={{
@@ -151,7 +165,11 @@ const RecipeState = (props) => {
         startIndexMeny,
         setstartIndexMeny,
         Menu,
-        dataArray
+        dataArray,
+        RecipeError,
+        ItemsToRenderUser,
+        setStartIndexUser,
+        StartIndexUser
       }}
     >
       {props.children}

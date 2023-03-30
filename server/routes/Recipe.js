@@ -3,9 +3,9 @@ const router = express.Router();
 const Recipe = require("../model/RecipeSchema");
 const FetchDetails = require("../middleware/FetchingDetails");
 router.post("/saved", FetchDetails, async (req, res) => {
-  const { name, url, area, category, ingredient, quantity, method, id } =
+  const { name, url,category,id } =
     req.body;
-  const already_exist = await Recipe.findOne({ user: req.User.id, Id: id });
+  const already_exist = await Recipe.findOne({ user: req.User.id, Unique: id });
   if (already_exist) {
     res.status(403).json({ error: "Cannot add the same Recipe" });
   } else {
@@ -31,4 +31,7 @@ router.get("/get", FetchDetails, async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+router.post("/delete", FetchDetails, async(req,res)=>{
+
+})
 module.exports = router;

@@ -11,7 +11,7 @@ const Options = (props) => {
   });
     return (
         <Link to={`/Menu/${category}/${props.Name}/${props.Unique}`} style={{textDecoration:"none",backgroundColor:"rgb(34, 42, 61)"}}>
-              <div className="wrapper-int"  style={{height:"64px",backgroundColor:"rgb(34, 42, 61)",width:"100%",borderRadius:"0px"}}>
+              <div className="wrapper-int"  style={{height:"65px",backgroundColor:"rgb(34, 42, 61)",width:"100%",borderRadius:"0px"}}>
                 <div className="left-wrapper">
                   <img
                     src={props.Url}

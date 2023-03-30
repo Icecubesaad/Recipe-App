@@ -39,7 +39,7 @@ const SideScreen = () => {
             <input placeholder="Search Recipe" value={Searching.value} onChange={Change}/>
             
           </div>
-          <div className="dropdown" style={{height:"auto",width:"60%",background:"rgb(14, 18, 24)",zIndex:"999"}}>
+          <div className="dropdown">
             {Searching.value.length>1?
               FilteredData.map((e) => <Options Name={e.strMeal} Url={e.strMealThumb} Unique={e.idMeal}/>)
               : null

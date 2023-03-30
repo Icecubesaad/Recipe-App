@@ -752,9 +752,19 @@ body {
 }
 .Text {
   margin-left: 38px;
-  position: fixed;
+}
+@media screen and (min-width:700px) {
+  .img-Recipe {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  .Text{
+    position: fixed;
   top: 180px;
   width: 600px;
+  }
 }
 .Text h2 {
   font-family: "Inter", sans-serif;
@@ -1096,6 +1106,26 @@ body {
   .login {
     margin-top: 0px;
   }
+  .dropdown{
+    width: 77%;
+    overflow-y: scroll;
+    z-index: 999;
+    border: 1px solid rgb(14, 18, 24);
+    border-radius: 11px;
+  }
+  .left-uper{
+    overflow: hidden;
+  }
+  .Text{
+    position: absolute;
+top: 28%;
+  }
+}
+.dropdown{
+  height:auto;
+  width:60%;
+  background:rgb(14, 18, 24);
+  z-index:999
 }
 .responsive-buttons {
   height: 15vh;
