@@ -23,7 +23,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="logo">
         <div className="profile-pic"></div>
-        <div className="Name">{name}</div>
+        <div className="Name" style={{textAlign:"center"}}>{name.toUpperCase()}</div>
       </div>
       <div className="menu">
         <motion.p

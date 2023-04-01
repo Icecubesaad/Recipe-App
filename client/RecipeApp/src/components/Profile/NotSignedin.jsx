@@ -16,11 +16,11 @@ const NotSignedin = () => {
   return (
     <>
       <Link to="/signin">
-      <button className="responsive-btn" style={state}>Sign in</button>
+      <button className="responsive-btn-hover" style={state}>Sign in</button>
       
       </Link>
       <Link to="/signup">
-      <button className="responsive-btn" style={state}>Sign up</button>
+      <button className="responsive-btn-hover" style={state}>Sign up</button>
       </Link>
     </>
   );

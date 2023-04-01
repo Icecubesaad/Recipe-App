@@ -22,7 +22,7 @@ const Signedin = () => {
   };
 
   return (
-    <Link to="/signin" style={{textDecoration:"none"}}><button className="responsive-btn" onClick={signOut} style={state}>Logout</button></Link>
+    <Link to="/signin" style={{textDecoration:"none"}}><button className="responsive-btn-hover" onClick={signOut} style={state}>Logout</button></Link>
   );
 };
 

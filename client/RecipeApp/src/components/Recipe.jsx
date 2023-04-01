@@ -38,7 +38,7 @@ const Recipe = () => {
                 <img src={element.strMealThumb} height="auto" width="60%" />
                 <div className="buttons-Recipes">
                   <button
-                    className="responsive-btn"
+                    className="responsive-btn-hover"
                     onClick={() => {
                       Saving_Recipe(
                         element.strMeal,

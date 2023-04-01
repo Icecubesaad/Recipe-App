@@ -42,7 +42,7 @@ const Signup = () => {
       setmessage("Please Enter valid Email and Password")
      }
      if(res.status === 200){
-      history("/")
+      history("/signin")
      }
      if(res.status === 403){
       setValidation(true)
@@ -78,9 +78,9 @@ const Signup = () => {
             <Link to="/signup"><button>Sign up</button></Link>
           </div>
             <h1>Sign Up</h1>
-            <input id="pass" onChange={Onchange} value={credentials.Name} name="Name" className="usr put" placeholder="Username" type="text" />
+            <input onChange={Onchange} value={credentials.Name} name="Name" className="usr put" placeholder="Username" type="text" />
             <br/>
-            <input className="usr put" onChange={Onchange} value={credentials.Email} name="Email" placeholder="Email or Username" type="text" />
+            <input className="usr put" onChange={Onchange} value={credentials.Email} name="Email" placeholder="Email" type="text" />
             <br />
             <input id="pass" onChange={Onchange} value={credentials.Password} name="Password" className="pss put" placeholder="Password" type="password" />
             <button id="bhde" onClick={show} className="shw" type="button">
@@ -95,7 +95,7 @@ const Signup = () => {
             <a className="pass" href="">
               Forgot Password
             </a>
-            <button onClick={Post} class="responsive-btn my-2">Sign up</button>
+            <button onClick={Post} class="responsive-btn-hover my-2">Sign up</button>
             <div className="lines">
               <div style={{ backgroundColor: "#a5a5a5" }} className="line"></div>
               <p style={{ color: "#a5a5a5" }} className="p-b">

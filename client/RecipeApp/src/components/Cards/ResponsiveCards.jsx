@@ -17,7 +17,7 @@ const location = useLocation()
             src={props.Url}
             id="img-card"
             alt="..."
-            style={{ height: "120px", width: "150px" }}
+            style={{ height: "120px", width: "150px",border:"transparent",borderRadius:"20px" }}
           />
         </div>
         <div className="right-wrapper">

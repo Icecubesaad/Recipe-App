@@ -1,13 +1,35 @@
 import React, { useState,useEffect, useContext } from "react";
-import image from "../images/k_Photo_Recipes_2020-10-twv-crispy-fall-tofu-bowl_TheKitchnFallTofuBowl_Option2-removebg-preview.png";
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 import { Link } from "react-router-dom";
 import data from "../json/MealsData.json"
-import ResponsiveDishesCard from "./Cards/ResponsiveDishesCard";
 import Options from "./Cards/Options";
 import RecipeContext from "../Functions/RecipeContext";
 import NotSignedin from "./Profile/NotSignedin";
 import Signedin from "./Profile/Signedin";
 const SideScreen = () => {
+  useEffect(() => {
+    AOS.init({
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+      
+    
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: 120, // offset (in px) from the original trigger point
+      delay: 0, // values from 0 to 3000, with step 50ms
+      duration: 400, // values from 0 to 3000, with step 50ms
+      easing: 'ease', // default easing for AOS animations
+      once: false, // whether animation should happen only once - while scrolling down
+      mirror: false, // whether elements should animate out while scrolling past them
+      anchorPlacement: 'top-bottom',
+    });
+  }, [])
   const context = useContext(RecipeContext)
   const {name,get_UserDetails,SignedInCheck,setSignedInCheck}=context
   useEffect(() => {
@@ -85,14 +107,14 @@ const SideScreen = () => {
       <div className="left-lower">
       <div className="Cards">
           <div className="flex-lower">
-          <div className="card" style={{ width: "14rem" ,borderRadius:"20px", height:"17rem",backgroundColor:"rgb(14, 18, 24)",color:"white",border:"2px solid rgb(14, 18, 24)"}}>
+          <div className="card" data-aos="fade-down" style={{ width: "14rem" ,borderRadius:"20px", height:"17rem",backgroundColor:"rgb(14, 18, 24)",color:"white",border:"2px solid rgb(14, 18, 24)"}}>
           <Link to={`/Menu/${"Chicken"}/${"Teriyaki Chicken Casserole"}/${52772}`}>
             <img
               src="https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
               class="card-img-top"
               id="img-card"
               alt="..."
-              style={{ height: "auto" }}
+              style={{ height: "auto",border:"transparent",borderRadius:"20px" }}
             />
           
           <div className="card-body">
@@ -100,14 +122,14 @@ const SideScreen = () => {
           </div>
           </Link>
         </div>
-        <div className="card" style={{ width: "14rem" ,borderRadius:"20px", height:"17rem",backgroundColor:"rgb(14, 18, 24)",color:"white",border:"2px solid rgb(14, 18, 24)"}}>
+        <div data-aos="fade-down" className="card" style={{ width: "14rem" ,borderRadius:"20px", height:"17rem",backgroundColor:"rgb(14, 18, 24)",color:"white",border:"2px solid rgb(14, 18, 24)"}}>
         <Link to={`/Menu/${"Beef"}/${"Big Mac"}/${53013}`}>
           <img
             src="https://www.themealdb.com/images/media/meals/urzj1d1587670726.jpg"
             class="card-img-top"
             id="img-card"
             alt="..."
-            style={{ height: "auto" }}
+            style={{ height: "auto",border:"transparent",borderRadius:"20px" }}
           />
         
         <div className="card-body">
@@ -115,14 +137,14 @@ const SideScreen = () => {
         </div>
         </Link>
       </div>
-      <div className="card" style={{ width: "14rem" ,borderRadius:"20px", height:"17rem",backgroundColor:"rgb(14, 18, 24)",color:"white",border:"2px solid rgb(14, 18, 24)"}}>
+      <div className="card" data-aos="fade-down" style={{ width: "14rem" ,borderRadius:"20px", height:"17rem",backgroundColor:"rgb(14, 18, 24)",color:"white",border:"2px solid rgb(14, 18, 24)"}}>
       <Link to={`/Menu/${"Pasta"}/${"Fettuccine Alfredo"}/${53064}`}>
         <img
           src="https://www.themealdb.com/images/media/meals/0jv5gx1661040802.jpg"
           class="card-img-top"
           id="img-card"
           alt="..."
-          style={{ height: "auto" }}
+          style={{ height: "auto",border:"transparent",borderRadius:"20px" }}
         />
       
       <div className="card-body">
@@ -134,14 +156,8 @@ const SideScreen = () => {
       </div>
       </div>
       <div className="right-lower">
-      <Link to="/Menu" style={{textDecoration:"none"}}><div className="button"><button id="btn1"><xml version="1.0" encoding="utf-8"/>
-<svg width="30px" height="30px" viewBox="0 0 24 24" fill="yellow" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11V5C11 4.44772 11.4477 4 12 4Z" fill="#FFAE00"/>
-</svg> see all</button></div></Link>
-      <Link to="/add" style={{textDecoration:"none"}}><div className="button"><button id="btn2"><xml version="1.0" encoding="utf-8"/>
-<svg width="30px" height="30px" viewBox="0 0 24 24" fill="yellow" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11V5C11 4.44772 11.4477 4 12 4Z" fill="#FFAE00"/>
-</svg> add recipe</button></div></Link>
+      <Link to="/Menu" style={{textDecoration:"none"}}><div ><button style={{width:"150px"}}  className="responsive-btn-hover">see all</button></div></Link>
+      <Link to="/add" style={{textDecoration:"none"}}><div ><button  style={{width:"150px"}} className="responsive-btn-hover">add recipe</button></div></Link>
       </div>
       </div>
     </div>

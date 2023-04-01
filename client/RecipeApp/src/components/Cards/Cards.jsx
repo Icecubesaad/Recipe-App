@@ -19,7 +19,7 @@ const Cards = (props) => {
           class="card-img-top"
           id="img-card"
           alt="..."
-          style={{ height: "auto" }}
+          style={{ height: "auto",border:"transparent",borderRadius:"20px" }}
         />
       
       <div className="card-body">
