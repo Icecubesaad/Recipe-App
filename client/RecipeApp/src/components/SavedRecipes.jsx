@@ -4,19 +4,19 @@ import RecipeContext from "../Functions/RecipeContext";
 import Cards from "./Cards/Cards";
 import DishesCardUser from "./Cards/DishesCardUser";
 import LoadingScreen from "./Loading/LoadingScreen";
+import RecipeErrorS from "./errors/RecipeErrorS";
 const SavedRecipes = () => {
   let arrayLenght
   const [loading, setloading] = useState(false);
   const history = useNavigate();
   const context = useContext(RecipeContext);
-  const { User, getting_recipe, StartIndexUser,ItemsToRenderUser,setStartIndexUser } = context;
+  const { User, getting_recipe, StartIndexUser,ItemsToRenderUser,setStartIndexUser,message,RecipeError } = context;
   if(User.length>1){
     arrayLenght = User[0].length
   }
   else{
     arrayLenght = User.length
   }
-  console.log(arrayLenght)
   const handleNextClick=()=>{
     setStartIndexUser(StartIndexUser+6)
   }
@@ -30,7 +30,6 @@ const SavedRecipes = () => {
     setloading(false);
   }, 500);
   useEffect(() => {
-    setStartIndexUser(0)
     if (localStorage.getItem("key")) {
       getting_recipe();
     } else {
@@ -94,6 +93,7 @@ const SavedRecipes = () => {
           )}
         </div> : null}
         <div style={{width:"100%"}}>
+        {RecipeError ? <RecipeErrorS Error={message}/> : null}
           <h1
             className="smthsmth"
             style={{

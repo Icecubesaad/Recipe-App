@@ -12,7 +12,6 @@ router.post(
   [body("Email").isEmail(), body("Password").isLength({ min: 5 })],
   async (req, res) => {
     const { Email, Password, Name } = req.body;
-    console.log(Name)
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         const emailErrors = errors.array({ onlyErrors: true, attributeFilter: 'email' });

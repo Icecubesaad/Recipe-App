@@ -1,10 +1,24 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect, useContext } from "react";
 import image from "../images/k_Photo_Recipes_2020-10-twv-crispy-fall-tofu-bowl_TheKitchnFallTofuBowl_Option2-removebg-preview.png";
 import { Link } from "react-router-dom";
 import data from "../json/MealsData.json"
 import ResponsiveDishesCard from "./Cards/ResponsiveDishesCard";
 import Options from "./Cards/Options";
+import RecipeContext from "../Functions/RecipeContext";
+import NotSignedin from "./Profile/NotSignedin";
+import Signedin from "./Profile/Signedin";
 const SideScreen = () => {
+  const context = useContext(RecipeContext)
+  const {name,get_UserDetails,SignedInCheck,setSignedInCheck}=context
+  useEffect(() => {
+    if(localStorage.getItem('key')){
+      setSignedInCheck(true)
+      get_UserDetails()
+    }
+    else{
+      setSignedInCheck(false)
+    }
+  }, []);
   const [Searching, seSearching] = useState({
     "value":""
   });
@@ -26,6 +40,12 @@ const SideScreen = () => {
   })
   return (
     <div className="SideScreen">
+    {window.innerWidth<500 ? <div style={{display:"flex",justifyContent:"space-between",marginTop:"30px",alignItems:"center",paddingLeft:"20px",paddingRight:"20px"}}>
+      <div style={{color:"white",fontSize:"1.1rem",fontFamily:"Inter"}}>{name.toUpperCase()}</div>
+      <div style={{display:"flex",justifyContent:"space-between"}}>
+      {SignedInCheck ? <Signedin/> : <NotSignedin/>}
+      </div>
+    </div> : null}
       <div className="Upper-part">
         <div className="left-uper">
         <div className="Search-bar-container">

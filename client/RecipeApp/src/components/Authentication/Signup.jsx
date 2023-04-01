@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ValidationError from "../errors/ValidationError";
+import Responsive from "../errors/Responsive";
 const Signup = () => {
   const history = useNavigate()
   const [SValidation, setValidation] = useState(false);
@@ -28,7 +29,6 @@ const Signup = () => {
         Name
       })
     })
-    const data =await res.json()
     if(res.status === 405){
       setValidation(true)
       setmessage("Please enter a valid email")
@@ -86,10 +86,16 @@ const Signup = () => {
             <button id="bhde" onClick={show} className="shw" type="button">
               show
             </button>
+            {window.innerWidth<500 ? 
+              <>
+              {SValidation ? <div><Responsive Error={message}/></div> : null}
+              </>
+              : null
+            }
             <a className="pass" href="">
               Forgot Password
             </a>
-            <button onClick={Post} class="btn-nav-auth my-2">Sign up</button>
+            <button onClick={Post} class="responsive-btn my-2">Sign up</button>
             <div className="lines">
               <div style={{ backgroundColor: "#a5a5a5" }} className="line"></div>
               <p style={{ color: "#a5a5a5" }} className="p-b">

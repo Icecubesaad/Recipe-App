@@ -4,6 +4,7 @@ const RecipeState = (props) => {
   const [RecipeError, setRecipeError] = useState(false);
   const [dataArray, setDataArray] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
+  const [message, setmessage] = useState("");
   const [Menu, setMenu] = useState([]);
   const [startIndexMeny, setstartIndexMeny] = useState(0);
   const [itemsToRender, setItemsToRender] = useState([]);
@@ -113,11 +114,32 @@ const RecipeState = (props) => {
     const data = await res.json();
     if(res.status === 403){
       setRecipeError(true)
+      setmessage("Item is already saved")
     }
   };
   setTimeout(() => {
     setRecipeError(false)
   }, 3000);
+  const deleting_Recipe = async(id)=>{
+    const res = await fetch("/account/delete",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        jwt_token:localStorage.getItem("key")
+      },
+      body:JSON.stringify({
+        id
+      })
+    })
+    if(res.status === 200){
+      setRecipeError(true)
+      setmessage("Deleted succesfully")
+    }
+    else{
+      setRecipeError(true)
+      setmessage("Some Error occured")
+    }
+  }
   const getting_recipe = async () => {
     const res = await fetch("/account/get", {
       method: "GET",
@@ -138,7 +160,6 @@ const RecipeState = (props) => {
       setItemsToRenderUser(ice)
     }
   }, [User,StartIndexUser]);
-  console.log(User)
   return (
     <RecipeContext.Provider
       value={{
@@ -169,7 +190,9 @@ const RecipeState = (props) => {
         RecipeError,
         ItemsToRenderUser,
         setStartIndexUser,
-        StartIndexUser
+        StartIndexUser,
+        deleting_Recipe,
+        message
       }}
     >
       {props.children}

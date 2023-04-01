@@ -32,6 +32,13 @@ router.get("/get", FetchDetails, async (req, res) => {
   }
 });
 router.post("/delete", FetchDetails, async(req,res)=>{
-
+  const {id} = req.body;
+  const deleting_Recipe = await Recipe.findOneAndDelete({user:req.User.id,Unique:id})
+  if(deleting_Recipe){
+    res.status(200).json("Deleted succesfully")
+  }
+  else{
+    res.status(405).json("Some Error Occured")
+  }
 })
 module.exports = router;
