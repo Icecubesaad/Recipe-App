@@ -18,9 +18,6 @@ const Signup = () => {
     reader.onload=()=>{
       setimage(reader.result)
     };
-    reader.onerror=error=>{
-      console.log("Error",error)
-    }
   };
   const history = useNavigate()
   const [SValidation, setValidation] = useState(false);

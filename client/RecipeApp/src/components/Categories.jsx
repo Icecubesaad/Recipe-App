@@ -24,7 +24,6 @@ const Categories = () => {
   } = context;
   const Menu_length = Menu.length;
   const length_of_array = Dishes.length;
-  console.log(length_of_array);
   const { category } = useParams();
   useEffect(() => {
     getDishes(category);

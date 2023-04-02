@@ -57,9 +57,6 @@ const SideScreen = () => {
     const icecube = po.slice(IndexOfArray,IndexOfArray+6)
     setFilteredData(icecube)
   }
-  FilteredData.map((e)=>{
-    console.log(e)
-  })
   return (
     <div className="SideScreen">
     {window.innerWidth<500 ? <div style={{display:"flex",justifyContent:"space-between",marginTop:"30px",alignItems:"center",paddingLeft:"20px",paddingRight:"20px"}}>
