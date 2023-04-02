@@ -46,7 +46,6 @@ const Signin = () => {
     const value = e.target.value
     setcredentials({...credentials,[key]:value})
   }
-  console.log(credentials)
   function show() {
     var x = document.getElementById("pass");
     var y = document.getElementById("bhde");

@@ -2,7 +2,26 @@ import React, { useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ValidationError from "../errors/ValidationError";
 import Responsive from "../errors/Responsive";
+import { useRef } from 'react';
 const Signup = () => {
+  const [imageFile, setimage] = useState();
+  const fileInputRef = useRef(null);
+
+  const handleSelectFile =() => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileInputChange = async (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload=()=>{
+      setimage(reader.result)
+    };
+    reader.onerror=error=>{
+      console.log("Error",error)
+    }
+  };
   const history = useNavigate()
   const [SValidation, setValidation] = useState(false);
   const [message, setmessage] = useState("");
@@ -26,7 +45,8 @@ const Signup = () => {
       body:JSON.stringify({
         Email,
         Password,
-        Name
+        Name,
+        imageFile
       })
     })
     if(res.status === 405){
@@ -79,6 +99,19 @@ const Signup = () => {
           </div>
             <h1>Sign Up</h1>
             <input onChange={Onchange} value={credentials.Name} name="Name" className="usr put" placeholder="Username" type="text" />
+            <br/>
+            <div>
+            <button className="select-file-btn" onClick={handleSelectFile}>
+            Select File
+          </button>
+          <input
+            type="file"
+            ref={fileInputRef}
+            className="file-input"
+            onChange={handleFileInputChange}
+          />
+    
+            </div>
             <br/>
             <input className="usr put" onChange={Onchange} value={credentials.Email} name="Email" placeholder="Email" type="text" />
             <br />

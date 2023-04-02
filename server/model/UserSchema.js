@@ -10,6 +10,9 @@ const UserSchema = new Schema({
   Name: {
     type: String,
   },
+  Image: {
+    type: String,
+  },
 });
 const user = mongoose.model("user", UserSchema);
 user.createIndexes();

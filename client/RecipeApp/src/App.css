@@ -896,11 +896,14 @@ flex-direction: column;
 align-items: center;
 }
 .profile-pic {
-  background-color: grey;
+  background-color: #c0c0c0;
   height: 100px;
   width: 100px;
   border: 1px solid black;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .Name {
   text-align: center;
@@ -1667,4 +1670,24 @@ svg #main-circ {
   100% {
     transform: scale(1);
   }
+}
+.select-file-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.select-file-btn:hover {
+  background-color: #0062cc;
+}
+
+.file-input {
+  display: none;
 }

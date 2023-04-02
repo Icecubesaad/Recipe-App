@@ -6,6 +6,7 @@ const RecipeState = (props) => {
   const [startIndex, setStartIndex] = useState(0);
   const [message, setmessage] = useState("");
   const [Menu, setMenu] = useState([]);
+  const [Image, setImage] = useState();
   const [startIndexMeny, setstartIndexMeny] = useState(0);
   const [itemsToRender, setItemsToRender] = useState([]);
   const User_account = [];
@@ -81,8 +82,8 @@ const RecipeState = (props) => {
         },
       });
       const data = await res.json();
-      console.log(data)
       setname(data.Name);
+      setImage(data.Image)
     } catch (error) {
       console.log(error);
     }
@@ -192,7 +193,9 @@ const RecipeState = (props) => {
         setStartIndexUser,
         StartIndexUser,
         deleting_Recipe,
-        message
+        message,
+        Image,
+        setImage
       }}
     >
       {props.children}

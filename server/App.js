@@ -3,6 +3,7 @@ const app = express()
 const port = 5000
 const bodyParser = require("body-parser")
 const mongo_connect = require("./database")
+const multer = require("multer")
 mongo_connect()
 app.use(express.json())
 app.use(bodyParser.json()) // for parsing application/json

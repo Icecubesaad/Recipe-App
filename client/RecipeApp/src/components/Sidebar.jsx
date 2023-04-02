@@ -9,7 +9,7 @@ import { useContext } from "react";
 import RecipeContext from "../Functions/RecipeContext";
 const Sidebar = () => {
   const context = useContext(RecipeContext)
-  const {SignedInCheck,setSignedInCheck,name,get_UserDetails} = context;
+  const {SignedInCheck,setSignedInCheck,name,get_UserDetails,Image} = context;
   useEffect(() => {
     if(localStorage.getItem('key')){
       setSignedInCheck(true)
@@ -22,7 +22,9 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="logo">
-        <div className="profile-pic"></div>
+        <div className="profile-pic">
+        <img src={Image} height="100px" width="100px" style={{border:"transparent",borderRadius:"50%"}}/>
+        </div>
         <div className="Name" style={{textAlign:"center"}}>{name.toUpperCase()}</div>
       </div>
       <div className="menu">
