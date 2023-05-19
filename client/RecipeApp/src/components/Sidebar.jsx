@@ -23,7 +23,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="logo">
         <div className="profile-pic">
-        <img src={Image} height="100px" width="100px" style={{border:"rgb(14, 18, 24)",borderRadius:"50%"}}/>
+        <img src={Image} height="100px" width="100px" style={{border:"rgb(14, 18, 24)",backgroundColor:"red",borderRadius:"50%"}}/>
         </div>
         <div className="Name" style={{textAlign:"center"}}>{name.toUpperCase()}</div>
       </div>
