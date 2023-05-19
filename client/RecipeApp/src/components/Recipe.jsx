@@ -1,21 +1,30 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams,useLocation} from "react-router-dom";
+import { useParams,useNavigate} from "react-router-dom";
 import RecipeContext from "../Functions/RecipeContext";
 import LoadingScreen from "./Loading/LoadingScreen";
 import RecipeErrorS from "./errors/RecipeErrorS";
 import { Link } from "react-router-dom";
 const Recipe = () => {
+  const navigate = useNavigate()
   const [loading, setloading] = useState(false);
   const { id, category,Name } = useParams();
   const encodeUrl =  window.location.pathname
   const decodeUrl = decodeURI(encodeUrl)
-
+  const [checkauth, setcheckauth] = useState(true);
   const context = useContext(RecipeContext);
   const { Ingredients, getIngredients, Saving_Recipe,deleting_Recipe } = context;
   useEffect(() => {
     getIngredients(id);
     setloading(true);
   }, []);
+  const check=()=>{
+    if(!localStorage.getItem("key")){
+      navigate("/signin")
+    }
+    else{
+      Saving_Recipe()
+    }
+  }
   setTimeout(() => {
     setloading(false);
   }, 500);
@@ -40,7 +49,7 @@ const Recipe = () => {
                   <button
                     className="responsive-btn-hover"
                     onClick={() => {
-                      Saving_Recipe(
+                      check(
                         element.strMeal,
                         element.strArea,
                         element.strCategory,
@@ -70,7 +79,7 @@ const Recipe = () => {
                  {window.innerWidth<500? <button
                     style={{ background: "transparent", border: "transparent" }}
                     onClick={() => {
-                      Saving_Recipe(
+                      check(
                         element.strMeal,
                         element.strArea,
                         element.strCategory,
