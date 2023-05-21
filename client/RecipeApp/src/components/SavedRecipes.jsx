@@ -30,7 +30,7 @@ const SavedRecipes = () => {
     setloading(false);
   }, 500);
   useEffect(() => {
-    if (localStorage.getItem("key")) {
+    if (localStorage.getItem("Recipekey")) {
       getting_recipe();
     } else {
       history("/signin");
