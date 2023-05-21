@@ -11,7 +11,7 @@ const Sidebar = () => {
   const context = useContext(RecipeContext)
   const {SignedInCheck,setSignedInCheck,name,get_UserDetails,Image} = context;
   useEffect(() => {
-    if(localStorage.getItem('key')){
+    if(localStorage.getItem('Recipekey')){
       setSignedInCheck(true)
       get_UserDetails()
     }
@@ -23,7 +23,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="logo">
         <div className="profile-pic">
-        <img src={Image} height="100px" width="100px" style={{border:"rgb(14, 18, 24)",borderRadius:"50%"}}/>
+        { Image ? <img src={Image} height="100px" width="100px" style={{border:"rgb(14, 18, 24)",borderRadius:"50%"}} />: <div style={{height:"100px",width:"100px",backgroundColor:"grey", borderRadius:"50%"}}></div>}
         </div>
         <div className="Name" style={{textAlign:"center"}}>{name.toUpperCase()}</div>
       </div>

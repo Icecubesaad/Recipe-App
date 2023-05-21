@@ -28,7 +28,7 @@ const Signin = () => {
         })
        const data = await res.json()
        if(res.status === 200){
-         localStorage.setItem('key',data.jwt_token)
+         localStorage.setItem('Recipekey',data.jwt_token)
          history("/")
          get_UserDetails()
           setSignedInCheck(true)
