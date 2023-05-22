@@ -6,7 +6,7 @@ const DishesCardUser = (props) => {
       <Link to={`/saved/Menu/${props.Category}/${props.Name}/${props.Unique}`}>
         <img
           src={props.Url}
-          class="card-img-top"
+          className="card-img-top"
           id="img-card"
           alt="..."
           style={{ height: "auto",border:"transparent",borderRadius:"20px" }}

@@ -125,7 +125,7 @@ const Signup = () => {
             <a className="pass" href="">
               Forgot Password
             </a>
-            <button onClick={Post} class="responsive-btn-hover my-2">Sign up</button>
+            <button onClick={Post} className="responsive-btn-hover my-2">Sign up</button>
             <div className="lines">
               <div style={{ backgroundColor: "#a5a5a5" }} className="line"></div>
               <p style={{ color: "#a5a5a5" }} className="p-b">

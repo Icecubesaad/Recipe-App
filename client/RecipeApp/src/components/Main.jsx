@@ -8,7 +8,7 @@ const Main = () => {
       <div className="content">
         <div className="text">
           <div className="Heading-text">Your own chef</div>
-          <div className="Heading-para" class="animate__animated animate__bounce animate__faster" >
+          <div className="Heading-para" className="animate__animated animate__bounce animate__faster" >
             Get in touch with the most unique and interesting reciepies from
             people all around the world
           </div>

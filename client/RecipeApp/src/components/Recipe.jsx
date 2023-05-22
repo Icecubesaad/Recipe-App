@@ -102,7 +102,7 @@ const Recipe = () => {
                           <g
                             id="Group"
                             fill="red"
-                            fill-rule="evenodd"
+                            fillRule="evenodd"
                             transform="translate(467 392)"
                           >
                             <path
@@ -281,7 +281,7 @@ const Recipe = () => {
                             <g
                               id="Group"
                               fill="none"
-                              fill-rule="evenodd"
+                              fillRule="evenodd"
                               transform="translate(467 392)"
                             >
                               <path

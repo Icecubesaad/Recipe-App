@@ -65,7 +65,7 @@ const Categories = () => {
                   height="40px"
                   viewBox="0 0 1024 1024"
                   fill="#000000"
-                  class="icon"
+                  className="icon"
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -83,7 +83,7 @@ const Categories = () => {
                   height="40px"
                   viewBox="0 0 1024 1024"
                   fill="#000000"
-                  class="icon"
+                  className="icon"
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -138,7 +138,7 @@ const Categories = () => {
                   height="40px"
                   viewBox="0 0 1024 1024"
                   fill="#000000"
-                  class="icon"
+                  className="icon"
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -161,7 +161,7 @@ const Categories = () => {
                   height="40px"
                   viewBox="0 0 1024 1024"
                   fill="#000000"
-                  class="icon"
+                  className="icon"
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
                 >
