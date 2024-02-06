@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const url = 'YOUR MONGODB STRING';
+const url = 'mongodb://127.0.0.1:27017/Recipes';
 const mongo_connect = ()=>{
     mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {

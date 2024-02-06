@@ -18,7 +18,7 @@ const Recipe = () => {
     setloading(true);
   }, []);
   const check=()=>{
-    if(!localStorage.getItem("key")){
+    if(!localStorage.getItem("Key")){
       navigate("/signin")
     }
     else{

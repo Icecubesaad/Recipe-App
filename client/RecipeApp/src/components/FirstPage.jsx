@@ -33,7 +33,7 @@ const SideScreen = () => {
   const context = useContext(RecipeContext)
   const {name,get_UserDetails,SignedInCheck,setSignedInCheck}=context
   useEffect(() => {
-    if(localStorage.getItem('Recipekey')){
+    if(localStorage.getItem('Key')){
       setSignedInCheck(true)
       get_UserDetails()
     }

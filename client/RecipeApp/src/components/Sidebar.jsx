@@ -11,7 +11,7 @@ const Sidebar = () => {
   const context = useContext(RecipeContext)
   const {SignedInCheck,setSignedInCheck,name,get_UserDetails,Image} = context;
   useEffect(() => {
-    if(localStorage.getItem('Recipekey')){
+    if(localStorage.getItem('Key')){
       setSignedInCheck(true)
       get_UserDetails()
     }

@@ -78,7 +78,7 @@ const RecipeState = (props) => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          jwt_token: localStorage.getItem("key"),
+          jwt_token: localStorage.getItem("Key"),
         },
       });
       const data = await res.json();
@@ -101,7 +101,7 @@ const RecipeState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        jwt_token: localStorage.getItem("key"),
+        jwt_token: localStorage.getItem("Key"),
       },
       body: JSON.stringify({
         name,
@@ -126,7 +126,7 @@ const RecipeState = (props) => {
       method:"POST",
       headers:{
         "Content-Type":"application/json",
-        jwt_token:localStorage.getItem("key")
+        jwt_token:localStorage.getItem("Key")
       },
       body:JSON.stringify({
         id
@@ -146,7 +146,7 @@ const RecipeState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        jwt_token: localStorage.getItem("key"),
+        jwt_token: localStorage.getItem("Key"),
       },
     });
     const data = await res.json();

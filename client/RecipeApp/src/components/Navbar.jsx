@@ -7,7 +7,7 @@ const Navbar = () => {
   const context = useContext(RecipeContext)
   const {SignedInCheck,setSignedInCheck} = context;
   useEffect(() => {
-    if(localStorage.getItem('key')){
+    if(localStorage.getItem('Key')){
       setSignedInCheck(true)
     }
     else{
